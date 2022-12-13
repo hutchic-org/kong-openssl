@@ -59,7 +59,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v4
       with:
-        images: ghcr.io/kong/kong-openssl
+        images: ghcr.io/hutchic-org/kong-openssl
         sep-tags: ' '
         flavor: |
           suffix=-${{ matrix.architecture }}-${{ matrix.ostype }}
@@ -105,9 +105,9 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Combine per architecture images into a single multi-arch manifest
       run: |
-        docker pull ghcr.io/kong/kong-openssl:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }}
-        docker pull ghcr.io/kong/kong-openssl:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
-        docker manifest create ghcr.io/kong/kong-openssl:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }} \
-          ghcr.io/kong/kong-openssl:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }} \
-          ghcr.io/kong/kong-openssl:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
-        docker manifest push ghcr.io/kong/kong-openssl:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }}
+        docker pull ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }}
+        docker pull ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
+        docker manifest create ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }} \
+          ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }} \
+          ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
+        docker manifest push ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }}
