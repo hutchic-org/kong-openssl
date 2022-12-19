@@ -9,6 +9,8 @@ FROM --platform=linux/amd64 ghcr.io/hutchic-org/kong-build-tools-base-images:apk
 FROM --platform=linux/amd64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.1.1 as x86_64-linux-gnu
 FROM --platform=linux/arm64 ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.1.1 as aarch64-linux-musl
 FROM --platform=linux/arm64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.1.1 as aarch64-linux-gnu
+FROM --platform=linux/ppc64le ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.1.1 as ppc64le-linux-musl
+FROM --platform=linux/ppc64le ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.1.1 as ppc64le-linux-gnu
 
 
 # Run the build script
