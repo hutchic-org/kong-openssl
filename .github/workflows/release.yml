@@ -107,7 +107,9 @@ jobs:
       run: |
         docker pull ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }}
         docker pull ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
+        docker pull ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-ppc64le-${{ matrix.ostype }}
         docker manifest create ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }} \
           ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }} \
-          ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
+          ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }} \
+          ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-ppc64le-${{ matrix.ostype }}
         docker manifest push ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }}
