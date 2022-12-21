@@ -32,7 +32,7 @@ jobs:
     name: Create Release Artifacts
     strategy:
       matrix:
-        architecture: [aarch64, x86_64, ppc64le]
+        architecture: [aarch64, x86_64, ppc64le, s390x]
         ostype: [linux-gnu, linux-musl]
     runs-on: ubuntu-latest
     steps:
@@ -108,10 +108,12 @@ jobs:
         docker pull ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }}
         docker pull ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
         docker pull ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-ppc64le-${{ matrix.ostype }}
+        docker pull ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-s390x-${{ matrix.ostype }}
         docker manifest create ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }} \
           ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }} \
           ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }} \
-          ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-ppc64le-${{ matrix.ostype }}
+          ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-ppc64le-${{ matrix.ostype }} \
+          ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-s390x-${{ matrix.ostype }}
         docker manifest push ghcr.io/hutchic-org/kong-openssl:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }}
 
   done:
