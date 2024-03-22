@@ -5,28 +5,28 @@ ARG DOCKER_IMAGE_NAME
 
 
 # List out all image permutations to trick dependabot
-FROM --platform=linux/amd64 ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.2.25 as x86_64-linux-musl
+FROM --platform=linux/amd64 ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.2.26 as x86_64-linux-musl
 RUN echo 'noop'
 
-FROM --platform=linux/amd64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.25 as x86_64-linux-gnu
+FROM --platform=linux/amd64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.26 as x86_64-linux-gnu
 RUN echo 'noop'
 
-FROM --platform=linux/arm64 ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.2.25 as aarch64-linux-musl
+FROM --platform=linux/arm64 ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.2.26 as aarch64-linux-musl
 RUN echo 'noop'
 
-FROM --platform=linux/arm64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.25 as aarch64-linux-gnu
+FROM --platform=linux/arm64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.26 as aarch64-linux-gnu
 RUN echo 'noop'
 
-FROM --platform=linux/ppc64le ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.2.25 as ppc64le-linux-musl
+FROM --platform=linux/ppc64le ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.2.26 as ppc64le-linux-musl
 RUN echo 'noop'
 
-FROM --platform=linux/ppc64le ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.25 as ppc64le-linux-gnu
+FROM --platform=linux/ppc64le ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.26 as ppc64le-linux-gnu
 RUN echo 'noop'
 
-FROM --platform=linux/s390x ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.2.25 as s390x-linux-musl
+FROM --platform=linux/s390x ghcr.io/hutchic-org/kong-build-tools-base-images:apk-1.2.26 as s390x-linux-musl
 RUN echo 'noop'
 
-FROM --platform=linux/s390x ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.25 as s390x-linux-gnu
+FROM --platform=linux/s390x ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.26 as s390x-linux-gnu
 RUN echo 'noop'
 
 # Run the build script
