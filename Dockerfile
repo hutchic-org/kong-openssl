@@ -5,10 +5,10 @@ ARG DOCKER_IMAGE_NAME
 
 
 # List out all image permutations to trick dependabot
-FROM --platform=linux/amd64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.31 as x86_64-linux-gnu
+FROM --platform=linux/amd64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.33 as x86_64-linux-gnu
 RUN echo 'noop'
 
-FROM --platform=linux/arm64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.31 as aarch64-linux-gnu
+FROM --platform=linux/arm64 ghcr.io/hutchic-org/kong-build-tools-base-images:rpm-1.2.33 as aarch64-linux-gnu
 RUN echo 'noop'
 
 # Run the build script
